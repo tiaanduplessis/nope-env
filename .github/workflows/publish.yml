@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+      - master
+
+name: Build and Publish
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Install
+      run: npm install
+    - name: Lint
+      run: npm run lint
+    - name: Test
+      run: npm test
+    - name: Publish
+      if: github.ref == 'refs/heads/master'
+      uses: mikeal/merge-release@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}

@@ -1,7 +1,7 @@
 {
     "name": "nope-env",
     "description": "Environment variable validation using dotenv and nope-validator",
-    "version": "1.0.0",
+    "version": "0.0.0-dev",
     "author": "Tiaan du Plessis <tiaanduplessis@hotmail.com>",
     "main": "./index.js",
     "files": [
